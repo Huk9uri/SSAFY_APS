@@ -1,0 +1,27 @@
+package SWEA_1210_ladder1;
+
+import java.util.Scanner;
+
+public class Solution {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		for (int t = 1; t <= 10; t++) {
+			int testCase = sc.nextInt();
+			// 사다리 초기화
+			int[][] ladder = new int[100][100];
+			int x = -1; // 도착지점의 좌표는 (99,x)이다.
+			for (int i = 0; i < ladder.length; i++) {
+				for (int j = 0; j < ladder.length; j++) {
+					ladder[i][j] = sc.nextInt();
+				}
+			}
+			for (int j = 0; j < ladder.length; j++) {
+				if (ladder[99][j] == 2) {
+					x = j; //
+				}
+			}
+
+		}
+	}
+}

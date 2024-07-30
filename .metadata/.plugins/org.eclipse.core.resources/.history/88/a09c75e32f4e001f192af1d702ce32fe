@@ -1,0 +1,50 @@
+package SWEA_1209_Sum;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Solution {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		int[][] map = new int[100][100];
+
+		int[] arr = new int[202];
+
+		for (int i = 0; i < map.length; i++) {
+			for (int j = 0; j < map.length; j++) {
+				map[i][j] = sc.nextInt();
+			}
+		}
+
+		// 각 행의 합 구하기
+		int index = 0;
+		for (int i = 0; i < map.length; i++) {
+			int sum = 0;
+			for (int j = 0; j < map.length; j++) {
+				sum += map[i][j];
+			}
+			arr[index] = sum;
+			index++;
+		}
+
+		for (int j = 0; j < map.length; j++) {
+			int sum = 0;
+			for (int i = 0; i < map.length; i++) {
+				sum += map[i][j];
+			}
+			arr[index] = sum;
+			index++;
+		}
+
+		int crossSum = 0;
+		for (int i = 0; i < map.length; i++) {
+			int j = i;
+			crossSum += map[i][j];
+		}
+		
+		for
+
+	}
+
+}

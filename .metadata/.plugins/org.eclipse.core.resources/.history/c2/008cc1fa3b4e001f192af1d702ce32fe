@@ -1,0 +1,85 @@
+package SWEA_1210_ladder1;
+
+import java.util.Scanner;
+
+public class Solution {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		for (int t = 1; t <= 10; t++) {
+			int testCase = sc.nextInt();
+			// 사다리 초기화
+			int[][] ladder = new int[100][100];
+			int x = -1; // 도착지점의 좌표는 (99,x)이다.
+			// 사다리에 값을 넣고
+			for (int i = 0; i < ladder.length; i++) {
+				for (int j = 0; j < ladder.length; j++) {
+					ladder[i][j] = sc.nextInt();
+				}
+			}
+			System.out.println("입력 끝");
+			// 가장 아래줄 i=99 에서 2의 j 좌표를 찾고
+			for (int j = 0; j < ladder.length; j++) {
+				if (ladder[99][j] == 2) {
+					x = j; //
+				}
+			}
+			System.out.println("x좌표 : " + x);
+			// (98,x)로 이동했다고 가정
+			for (int i = 98; i >= 0; i--) {
+				int cnt = 0;
+				if (x != 0 && x != 99) {
+					if (ladder[i][x - 1] == 1) { // 양 옆에 하나라도 1이 있다면 그곳으로 이동
+						for (int left = 1; left < x; left++) {
+							if (ladder[i][x - left] == 1) {
+								cnt++;
+								if (ladder[i][x - left] == 0) {
+									break;
+								}
+							}
+						}
+						x -= cnt;
+					} else if (ladder[i][x + 1] == 1) {
+						for (int right = 1; right < 99 - x; right++) {
+							if (ladder[i][x + right] == 1) {
+								cnt++;
+								if (ladder[i][x + right] == 0) {
+									break;
+								}
+							}
+
+						}
+						x += cnt;
+					}
+				} else if (x == 0) {
+					if (ladder[i][x + 1] == 1) {
+						for (int right = 1; right < 99 - x; right++) {
+							if (ladder[i][x + right] == 1) {
+								cnt++;
+								if (ladder[i][x + right] == 0) {
+									break;
+								}
+							}
+
+						}
+						x += cnt;
+					}
+				} else if (x == 99) {
+					if (ladder[i][x - 1] == 1) { // 양 옆에 하나라도 1이 있다면 그곳으로 이동
+						for (int left = 1; left < x; left++) {
+							if (ladder[i][x - left] == 1) {
+								cnt++;
+								if (ladder[i][x - left] == 0) {
+									break;
+								}
+							}
+						}
+						x -= cnt;
+					}
+
+				}
+			}
+			System.out.println(x);
+		}
+	}
+}
