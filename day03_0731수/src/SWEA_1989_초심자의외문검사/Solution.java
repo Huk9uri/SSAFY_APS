@@ -1,4 +1,4 @@
-package SWEA_1989_초심자의외문검사;
+package SWEA_1989_초심자의외문검사; //초심자의 회문검사 오타를 내셨다.
 
 import java.util.Arrays;
 import java.util.Iterator;
