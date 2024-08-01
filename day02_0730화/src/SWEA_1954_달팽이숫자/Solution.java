@@ -19,7 +19,6 @@ public class Solution {
 			int[] dx = { 0, 1, 0, -1 };
 			int[] dy = { 1, 0, -1, 0 };
 
-
 			int num = 1;
 			while (num <= n * n) {
 				map[x][y] = num;

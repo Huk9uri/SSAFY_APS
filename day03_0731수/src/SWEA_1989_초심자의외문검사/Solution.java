@@ -21,10 +21,8 @@ public class Solution {
 				reverseWord[j] = word[reverseWord.length - 1 - j];
 			}
 
-			// System.out.println(Arrays.toString(word));
-			// System.out.println(Arrays.toString(reverseWord));
 			int cnt = 0;
-
+			
 			for (int j = 0; j < reverseWord.length; j++) {
 				if (word[j] != reverseWord[j]) {
 					cnt++;
