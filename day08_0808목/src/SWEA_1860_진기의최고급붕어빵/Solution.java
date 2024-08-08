@@ -1,31 +1,48 @@
 package SWEA_1860_진기의최고급붕어빵;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class Solution {
-	static List<String> list = new ArrayList<>();
-	static int front = -1;
-	static int rear = -1;
-	static int listSize = rear - front;
+	// 원형 큐 구현
+	private String[] queue;
+	private int front;
+	private int rear;
+	private int size;
 
-	static void enQueue(String bread) {
-		list.add(bread);
-		rear++;
+	public Solution(int capacity) {
+		queue = new String[capacity];
+		front = 0;
+		rear = 0;
+		size = 0;
 	}
 
-	static String deQueue() {
-		String popItem = list.remove(++front);
-		return popItem;
+	public void enQueue(String item) {
+		if (size == queue.length) {
+			return;
+		}
+		queue[rear] = item;
+		rear = (rear + 1) % queue.length;
+		size++;
 	}
 
-	static boolean isEmpty() {
-		if (listSize == 0) {
+	public String deQueue() {
+		if (size == 0) {
+			return null;
+		}
+		front = (front + 1) % queue.length;
+		size--;
+		return queue[front];
+	}
+
+	public boolean isEmpty() {
+		if (size == 0) {
 			return true;
-		} else
-			return false;
+		}
+		return false;
+	}
+
+	public int size() {
+		return size;
 	}
 
 	public static void main(String[] args) {
@@ -44,32 +61,37 @@ public class Solution {
 				int eta = sc.nextInt();
 				arr[eta]++;
 			}
-			// 첫 사이클 돌리기도 전에 손님이 온 경우
-			for (int j = 0; j < time; j++) {
-				if (arr[j] > 0) {
-					System.out.println("#" + i + " Impossible");
+
+			Solution queue = new Solution(11111);
+
+			boolean possible = true;
+
+			for (int j = time; j < arr.length; j++) {
+				if (j % time == 0 && j != 0) {
+					for (int k = 0; k < bread; k++) {
+						queue.enQueue("bread"); // 붕어빵 갯수만큼 빵 넣기
+					}
+				}
+				while (arr[j] > 0) { // 손님이 있을 때
+					if (queue.isEmpty()) { // 붕어빵이 비어있으면
+						possible = false;
+						break;
+					}
+					queue.deQueue();
+					arr[j]--;
+				}
+				// 첫 사이클 돌리기도 전에 손님이 온 경우
+				if (j < time && arr[j] > 0) {
+					possible = false;
 					break;
 				}
 			}
-			for (int j = time; j < arr.length; j++) {
-				if (j % time == 0) {
-					for (int k = 0; k < bread; k++) {
-						enQueue("boong"); // 붕어빵 갯수만큼 빵 넣기
-					}
-				} else {
-					for (int k = 0; k < arr[j]; k++) {
-						deQueue();
-					}
-					if (isEmpty()) { // 빵이 비어있으면
-						System.out.println("#" + i + " Impossible");
-						break;
-					}
-				}
-			}
-			if (!isEmpty()) {
-				System.out.println("#" + i + " Possible");
-			}
 
+			if (possible == true) {
+				System.out.println("#" + i + " Possible");
+			} else {
+				System.out.println("#" + i + " Impossible");
+			}
 		}
 	}
 }
