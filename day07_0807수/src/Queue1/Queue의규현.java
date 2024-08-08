@@ -6,7 +6,6 @@ import java.util.List;
 public class Queue의규현 {
 
 	List<Integer> list = new ArrayList<>();
-	final int Max_listSize = 100;
 	int front = -1;
 	int rear = -1;
 	int listSize = rear - front;
@@ -25,7 +24,7 @@ public class Queue의규현 {
 	}
 
 	boolean isFull() {
-		return listSize == Max_listSize;
+		return rear == front;
 	}
 
 }

@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class Solution {
-	//리팩토링 필요
+	// 리팩토링 필요
 	static String[] queue1 = new String[500];
 	static int front1 = -1;
 	static int rear1 = -1;
