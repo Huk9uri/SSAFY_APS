@@ -11,7 +11,7 @@ public class Solution {
 
 		for (int i = 1; i <= 10; i++) {
 
-			int trash = sc.nextInt();
+			sc.nextInt(); // 테스트 케이스의 길이는 필요없음.
 			String expression = sc.next();
 			String postFix = infixToPostfix(expression);
 			int result = evalPostfix(postFix);
@@ -22,7 +22,7 @@ public class Solution {
 
 	static Map<Character, Integer> map = new HashMap<>();
 
-	static {
+	static { // 우선순위를 부여하기 위해
 		map.put('(', 0);
 		map.put('+', 1);
 		map.put('-', 1);
@@ -37,14 +37,14 @@ public class Solution {
 
 		for (int i = 0; i < infix.length(); i++) {
 			char c = infix.charAt(i);
-			if (c >= '0' && c <= '9') {
+			if (c >= '0' && c <= '9') { // 피연산자일때
 				postfix += c;
-			} else if (c == '(') {
-				stack.push(c);
-			} else if (c == ')') {
-				char popItem = stack.pop();
-				while (popItem != '(') {
-					postfix += popItem;
+			} else if (c == '(') { // 여는 괄호라면
+				stack.push(c); // 스택에 넣고
+			} else if (c == ')') { // 닫는 괄호라면
+				char popItem = stack.pop(); 
+				while (popItem != '(') { // 여는 괄호가 나올 때 까지 팝을 해준다.
+					postfix += popItem;  // 여는 괄호가 아니라면 연산자이다.
 					popItem = stack.pop();
 				}
 			} else {
