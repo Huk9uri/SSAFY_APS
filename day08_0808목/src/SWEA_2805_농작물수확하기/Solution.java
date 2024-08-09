@@ -19,8 +19,9 @@ public class Solution {
 				String s = sc.next();
 				sb.append(s);
 			}
-			System.out.println(sb);
+			String str = sb.toString();
 			
+			int num = Integer.parseInt(str);
 			
 			for (int j = 0; j < map.length; j++) {
 				for (int k = 0; k < map.length; k++) {
