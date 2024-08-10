@@ -4,7 +4,6 @@
     <fullyQualifiedTypeName name="java.security.DomainCombiner"/>
     <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="java.util.Spliterator"/>
-    <fullyQualifiedTypeName name="java.util.Queue"/>
     <fullyQualifiedTypeName name="java.util.LinkedList"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
@@ -13,4 +12,6 @@
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="Queue1.Queue의규현"/>
+    <fullyQualifiedTypeName name="java.util.Queue"/>
+    <fullyQualifiedTypeName name="SWEA_1860_진기의최고급붕어빵.Solution"/>
 </qualifiedTypeNameHistroy>
