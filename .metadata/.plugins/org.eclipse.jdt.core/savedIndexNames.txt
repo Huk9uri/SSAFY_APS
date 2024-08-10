@@ -1,4 +1,0 @@
-INDEX VERSION 1.134+C:\Users\Administrator\Desktop\SSAFY_APS\.metadata\.plugins\org.eclipse.jdt.core
-3744130562.index
-3009054434.index
-1865797976.index
