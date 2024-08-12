@@ -40,19 +40,15 @@ public class Solution {
 						currentX[i] = nx;
 						currentY[i] = ny;
 					} else {// 약품에 도달했을 때
-						cells[i] = cells[i] / 2; // 마릿수 절반 감소
-						if (direction[i] == 3) {// 진행방향이 좌측이었다면
-							direction[i]++; // 우측으로 변경해준다.
-						} else if (direction[i] == 4) { // 우측이었다면
-							direction[i]--;// 좌측으로 변경해준다.
-						} else if (direction[i] == 1) { // 진행방향이 위쪽 이었다면
-							direction[i]++;// 아래방향으로 틀어준다.
-						} else if (direction[i] == 2) { // 진행방향이 아래라면
-							direction[i]--;// 위 방향으로 틀어준다.
+						cells[i] /= 2; // 마릿수 절반 감소
+						if (direction[i] == 3 || direction[i] == 1) {// 진행방향이 좌측, 상향 이었다면
+							direction[i]++; // 우측, 하향으로 변경해준다.
+						} else { // 우측, 하향이었다면
+							direction[i]--;// 좌측, 상향으로 변경해준다.
 						}
 						// 진행방향 변경 완료
-						currentX[i] = currentX[i] + dx[direction[i] - 1];
-						currentY[i] = currentY[i] + dy[direction[i] - 1];
+						currentX[i] = nx;
+						currentY[i] = ny;
 					}
 				}
 //                System.out.println(Arrays.toString(cells));
@@ -67,7 +63,7 @@ public class Solution {
 				for (int i = 0; i < K; i++) {
 					int cnt = 0; // 기준이 되는 i번 군집과 만나는 인덱스들의 갯수
 					for (int j = i + 1; j < K; j++) {
-						if (currentX[i] == currentX[j]) {
+						if (currentX[i] == currentX[j] && currentY[i] == currentY[j]) {
 							cnt++;
 						}
 //                        System.out.println("브루트포스 : " + cnt);
@@ -75,7 +71,7 @@ public class Solution {
 					int[] meetIdx = new int[cnt];// 만나는 인덱스들을 배열에 넣는다.
 					int index = 0;
 					for (int j = i + 1; j < K; j++) {
-						if (currentX[i] == currentX[j]) {
+						if (currentX[i] == currentX[j] && currentY[i] == currentY[j]) {
 							meetIdx[index++] = j;
 						}
 					}
@@ -88,7 +84,7 @@ public class Solution {
 						for (int j = 0; j < meetIdx.length; j++) {
 							if (cells[meetIdx[j]] > max) {
 								max = cells[meetIdx[j]];
-								max_cells_index = j;
+								max_cells_index = meetIdx[j];
 							}
 						}
 //                        System.out.println("max_cells_index : " + max_cells_index);
@@ -104,6 +100,7 @@ public class Solution {
 //                            System.out.println("q" + Q);
 //                            System.out.println("cellSum" + cellSum);
 						}
+						cells[Q] = cellSum;
 
 						// 1. 각 군집별로 이동 시켰음.
 						// 2. 이동 후 만나는 경우에 대해
