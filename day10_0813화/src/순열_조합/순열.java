@@ -1,10 +1,10 @@
 package 순열_조합;
 
-public class Permutation {
+public class 순열 {
 	static int[] arr = { 1, 2, 3 }; // 원소를 저장한 배열
 	static boolean[] visited = new boolean[arr.length]; // 각 원소가 이미 사용되었는지를 체크하는 배열
-	static int[] output = new int[arr.length];// 순열 결과를 저장할 배열
 	static int r = 2;// 선택할 원소의 개수
+	static int[] output = new int[r];// 순열 결과를 저장할 배열
 
 	public static void main(String[] args) {
 		// 순열 생성 함수 호출: 깊이(depth)는 0부터 시작
@@ -32,7 +32,7 @@ public class Permutation {
 				output[depth] = arr[i];
 				// 다음 깊이로 재귀 호출 (현재 원소를 선택한 상태로 나머지 원소들로 순열 생성)
 				perm(arr, output, visited, depth + 1, r);
-				// 백트래킹: 원상태로 복구하여 다른 선택지를 탐색할 수 있도록 함
+				// 재귀함수가 기저조건을 만족하여 종료되면 방문표시를 한 원소를 초기화 시킨다!!
 				visited[i] = false;
 			}
 		}

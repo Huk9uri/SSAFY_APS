@@ -78,7 +78,7 @@ public class CompleteBinaryTree<E> { // 뭐가 들어갈 지 모르니 제너릭
 			// 왼쪽 자식 노드가 트리의 마지막에 저장된 인덱스보다 작거나 같다면 존재한다는 것이므로 큐에 넣는다.
 			if (cur * 2 + 1 <= lastIndex)
 				queue.offer(new int[] { cur * 2 + 1, breadth + 1 }); // 오른쪽 자식 노드 :cur *2 + 1
-									//다음 탐색 노드 인덱스 , 너비 
+										//다음 탐색 노드 인덱스 , 너비 
 		}
 	}
 
