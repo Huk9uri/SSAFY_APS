@@ -89,7 +89,6 @@ public class Solution2 {
 			for (int j = 0; j < list.size(); j++) {
 				System.out.print(list.get(j) + " ");
 			}
-			//16진수 어떻게 바꿔요...??????????
 										
 		}
 	}
