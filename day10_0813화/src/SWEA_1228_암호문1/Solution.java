@@ -40,7 +40,7 @@ class SinglyLinkedList {
 		}
 		System.out.println();
 	}
-	
+
 	void print(int i) { // i 까지만 출력
 		Node curr = head.next;
 		for (int k = 0; k < i; k++) {
@@ -48,6 +48,14 @@ class SinglyLinkedList {
 			curr = curr.next;
 		}
 		System.out.println();
+	}
+
+	void removeData(int i) {
+		Node curr = head;
+		for (int k = 0; k < i; k++) {
+			curr = curr.next;
+		}
+		curr.next = curr.next.next;
 	}
 }
 
@@ -63,15 +71,23 @@ public class Solution {
 			}
 			int orderCnt = sc.nextInt();
 			for (int i = 0; i < orderCnt; i++) {
-				sc.next(); // 삽입 명령어 . 필요없다.
-				int idx = sc.nextInt();
-				int addCnt = sc.nextInt();
-				for (int k = 0; k < addCnt; k++) {
-					list.addData(idx, sc.next());
-					idx++;
+				String order = sc.next(); // 삽입 명령어 I --> 삽입 D --> 삭제
+				if (order.equals("I")) {
+					int idx = sc.nextInt();
+					int addCnt = sc.nextInt();
+					for (int k = 0; k < addCnt; k++) {
+						list.addData(idx, sc.next());
+						idx++;
+					}
+				} else {
+					int idx = sc.nextInt();
+					int deleteCnt = sc.nextInt();
+					for (int k = 0; k < deleteCnt; k++) {
+						list.removeData(idx);
+					}
 				}
 			}
-			
+
 			System.out.print("#" + test_case + " ");
 			list.print(10);
 		}
