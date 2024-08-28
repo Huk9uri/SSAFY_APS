@@ -10,29 +10,11 @@ public class Solution {
 	static int N = queue.length;
 	static int size;
 
-	public static void main(String[] args) {
-		
-		enQueue("루나");
-		enQueue("데이지");
-		enQueue("맥스");
-		enQueue("강기훈");
-		
-		System.out.println(size());
-		System.out.println(Arrays.toString(queue));
-		deQueue();
-		deQueue();
-		deQueue();
-		deQueue();
-		enQueue("강기훈1");
-		enQueue("소남주1");
-		enQueue("지유림1");
-		System.out.println(Arrays.toString(queue));
-	}
-
 	// 포화상태 확인
 	static boolean isFull() {
 		// return front - rear == 1; front와 rear가 역전됐을때 예외됨
-		return (N + front - rear) % N == 1; // 4 = n
+//		return (N + front - rear) % N == 1; // 4 = n
+		return (rear + 1) % N == front;
 		// 모듈러 연산에서 나눠지는 값이 음수일 경우, 자바에서는 음수 나눗셈을 지원하지 않으므로
 		// 그 값에 n을 더해주고 실행한다.
 	}
@@ -43,13 +25,13 @@ public class Solution {
 
 	static void enQueue(String item) {
 		// queue[++rear] = item; 선형 큐
-		if(isFull()) {
+		if (isFull()) {
 			System.out.println("큐가 가득 찼습니다.");
 			return;
 		}
 		rear = (rear + 1) % N;
 		queue[rear] = item;
-		size ++;
+		size++;
 	}
 
 	static String deQueue() {
@@ -78,4 +60,22 @@ public class Solution {
 		// return (N + rear - front) % N; 가능
 	}
 
+	public static void main(String[] args) {
+
+		enQueue("루나");
+		enQueue("데이지");
+		enQueue("맥스");
+		enQueue("강기훈");
+
+		System.out.println(size());
+		System.out.println(Arrays.toString(queue));
+		deQueue();
+		deQueue();
+		deQueue();
+		deQueue();
+		enQueue("강기훈1");
+		enQueue("소남주1");
+		enQueue("지유림1");
+		System.out.println(Arrays.toString(queue));
+	}
 }
