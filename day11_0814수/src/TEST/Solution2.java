@@ -72,6 +72,10 @@ public class Solution2 {
 						}
 					}
 				}
+				
+				for (int j = 0; j < list.size(); j++) {
+					list.get(j);
+				}
 
 //				for (int j = 0; j < cycle.length; j++) {
 //					for (int l = 0; l < cycle[0].length; l++) {
