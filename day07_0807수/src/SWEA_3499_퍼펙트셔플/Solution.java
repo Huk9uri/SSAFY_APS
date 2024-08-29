@@ -100,7 +100,6 @@ public class Solution {
 
 	public static void main(String[] args) {
 
-		Queue<Integer> queue = new LinkedList<>();
 		Scanner sc = new Scanner(System.in);
 		int testCase = sc.nextInt();
 		for (int i = 1; i <= testCase; i++) {
