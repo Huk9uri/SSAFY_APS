@@ -1,4 +1,4 @@
-package 분할정복;
+package 병합정렬;
 
 import java.util.Arrays;
 
