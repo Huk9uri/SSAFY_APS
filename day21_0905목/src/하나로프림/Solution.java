@@ -69,7 +69,7 @@ public class Solution {
 				}
 				idx++;
 			}
-			for (int j = 1; j < V; j++) {
+			for (int j = 1; j < V+1; j++) {
 				for (Edge e : adjList[j]) {
 					System.out.println(e.toString());
 				}
@@ -79,7 +79,10 @@ public class Solution {
 			double ans = 0;
 			int pick = 1;
 			PriorityQueue<Edge> pq = new PriorityQueue<>();
-			pq.addAll(adjList);
+			for (int i = 1; i < V+1; i++) {
+				pq.addAll(adjList[i]);
+			}
+			
 
 		}
 	}
