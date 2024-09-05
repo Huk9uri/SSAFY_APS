@@ -20,8 +20,8 @@ public class Solution3 {
 
 			int needCycle = n / 4 - 1; // 필요 회전 횟수 .. 12 / 4 - 1 = 2
 			int size = n / 4 - 1;
-			Stack<String> stack = new Stack();
-			List<String> list = new ArrayList();
+			Stack<String> stack = new Stack<String>();
+			List<String> list = new ArrayList<String>();
 
 			for (int i = 0; i < n; i += (needCycle + 1)) {
 				list.add(s.substring(i, i + needCycle + 1)); // 0~2 3 ~ 5
