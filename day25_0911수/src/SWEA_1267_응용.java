@@ -7,6 +7,8 @@ import java.util.Scanner;
 public class SWEA_1267_응용 {
 
 	public static void main(String[] args) {
+		// 한 가지 일을 처리하는데 1시간이 걸리며, 같은 단계의 일들은 동시에 진행할 수 있다.
+		// 모든 일을 마치는데 걸리는 최소 시간을 구하기.
 		Scanner sc = new Scanner(System.in);
 		int T = 10;
 		for (int tc = 1; tc <= 10; tc++) {
