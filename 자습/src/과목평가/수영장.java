@@ -20,6 +20,7 @@ public class 수영장 {
 			}
 
 			for (int i = 1; i < dp.length; i++) {
+				// i-1 달 + 일일권  vs ㅑ-1 달 + 한달권
 				dp[i] = Math.min(dp[i - 1] + useCnt[i] * price[0], dp[i - 1] + price[1]);
 
 				if (i >= 3) {
